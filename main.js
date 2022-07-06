@@ -147,11 +147,26 @@ $(document).ready(function() {
 			return;
 		}
 
-		const res = parseExpr(deserCont);
+		let i = 0;
+		let acc = 0;
+		while (i < deserCont.length - 2) {
+			let lhs;
+			if (i) {
+				lhs = 0;
+			} else {
+				lhs = deserCont[i];
+			}
 
-		if (typeof res == 'string') {
-			$('#res .body').text(res);
+			acc += parseExpr([
+				lhs,
+				deserCont[i + 1],
+				deserCont[i + 2]
+			]);
+
+			i += 1 + 1;
 		}
+
+		const res = acc;
 
 		$('#tok .body').empty();
 		for (let tok of tokCont) {
