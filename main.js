@@ -129,6 +129,14 @@ $(document).ready(function() {
 
 		if (tokCont.length < 3) {
 			$('#res .body').text("Error: Less tokens than required");
+
+			return;
+		}
+
+		if (!(tokCont.length % 2)) {
+			$('#res .body').text("Error: Inappropriate number of tokens");
+
+			return;
 		}
 
 		const deserCont = deser(tokCont);
