@@ -4,20 +4,16 @@ function tok(serial) {
 	let cont = [];
 	let i = 0;
 	while (i < serial.length) {
-		let c = serial[i];
-
-		if (c == ws) {
+		if (serial[i] == ws) {
 			i++;
 
 			continue;
 		}
 
-		if (c != ws) {
+		if (serial[i] != ws) {
 			let tok = "";
-			while (c != ws && i < serial.length) {
-				c = serial[i];
-
-				tok += c;
+			while (serial[i] != ws && i < serial.length) {
+				tok += serial[i];
 
 				i++;
 			}
