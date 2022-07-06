@@ -1,30 +1,32 @@
-const expr = '3 + 7 + 12 + 3 + 7 + 12 + 3 + 7 + 12 + 3 + 7 + 12';
-
 const ws = ' ';
 
-let tokCont = [];
-let i = 0;
-while (i < expr.length) {
-	if (expr[i] == ws) {
-		i++;
+$(document).ready(function() {
+	$('#expr').keydown(function() {
+		const expr = $('#expr').val();
 
-		continue;
-	} else {
-		let tok = "";
-		while (expr[i] != ws && i < expr.length) {
-			tok += expr[i];
+		let tokCont = [];
+		let i = 0;
+		while (i < expr.length) {
+			if (expr[i] == ws) {
+				i++;
 
-			i++;
+				continue;
+			} else {
+				let tok = "";
+				while (expr[i] != ws && i < expr.length) {
+					tok += expr[i];
+
+					i++;
+				}
+
+				tokCont.push(tok);
+			}
 		}
 
-		tokCont.push(tok);
-	}
-}
+		$('#tok').empty();
 
-$(document).ready(function() {
-	$('#expr').val(expr);
-
-	for (let tok of tokCont) {
-		$('#tok').append(`<div>${tok}</div>`);
-	}
+		for (let tok of tokCont) {
+			$('#tok').append(`<div>${tok}</div>`);
+		}
+	});
 });
