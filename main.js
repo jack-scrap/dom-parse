@@ -70,10 +70,17 @@ function parseExpr(deserCont) {
 }
 
 $(document).ready(function() {
+	const serial = "3 + 7";
+	let tokCont = tok(serial);
+	let asdf = deser(tokCont);
+	let hjkl = parseExpr(asdf);
+
+	alert(hjkl)
+
 	$('#expr').keyup(function() {
 		const serial = $('#expr').val();
 
-		let tokCont = tok(serial);
+		const tokCont = tok(serial);
 
 		$('#tok .body').empty();
 		for (let tok of tokCont) {
