@@ -152,21 +152,33 @@ $(document).ready(function() {
 			return;
 		}
 
+		$('#ast .body').empty();
+
 		let i = 0;
 		let acc = 0;
 		while (i < deserCont.length - 2) {
 			let lhs;
 			if (i) {
-				lhs = 0;
+				lhs = acc;
 			} else {
 				lhs = deserCont[i];
 			}
 
-			acc += parseExpr([
-				lhs,
-				deserCont[i + 1],
-				deserCont[i + 2]
-			]);
+			$('#ast .body').append(`<div class='cont'>${lhs} ${deserCont[i + 1]} ${deserCont[i + 2]}</div>`);
+
+			if (i) {
+				acc = parseExpr([
+					acc,
+					deserCont[i + 1],
+					deserCont[i + 2]
+				]);
+			} else {
+				acc = parseExpr([
+					deserCont[i],
+					deserCont[i + 1],
+					deserCont[i + 2]
+				]);
+			}
 
 			i += 1 + 1;
 		}
