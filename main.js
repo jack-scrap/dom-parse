@@ -13,7 +13,9 @@ $(document).ready(function() {
 				i++;
 
 				continue;
-			} else {
+			}
+
+			if (c != ws) {
 				let tok = "";
 				while (c != ws && i < expr.length) {
 					c = expr[i];
