@@ -32,9 +32,41 @@ function tok(serial) {
 	return cont;
 }
 
+function deser(tokCont) {
+	let cont = [];
+
+	let i = 0;
+	while (i < tokCont.length) {
+		// number
+		if (!isNaN(tokCont[i])) {
+			cont.push(Number(tokCont[i]));
+
+			i++;
+
+			continue;
+		}
+
+		// operator
+		if (
+			tokCont[i] == op['add'] ||
+			tokCont[i] == op['sub'] ||
+			tokCont[i] == op['mul'] ||
+			tokCont[i] == op['div']
+		) {
+			cont.push(tokCont[i]);
+
+			i++;
+
+			continue;
+		}
+	}
+
+	return cont;
+}
+
 function parseExpr(deserCont) {
-	let lhs = Number(deserCont[0]);
-	let rhs = Number(deserCont[2]);
+	let lhs = deserCont[0];
+	let rhs = deserCont[2];
 
 	let oper = deserCont[1];
 
@@ -70,17 +102,14 @@ function parseExpr(deserCont) {
 }
 
 $(document).ready(function() {
-	const serial = "3 + 7";
-	let tokCont = tok(serial);
-	let asdf = deser(tokCont);
-	let hjkl = parseExpr(asdf);
-
-	alert(hjkl)
-
 	$('#expr').keyup(function() {
 		const serial = $('#expr').val();
 
 		const tokCont = tok(serial);
+
+		const deserCont = deser(tokCont);
+
+		const res = parseExpr(deserCont);
 
 		$('#tok .body').empty();
 		for (let tok of tokCont) {
