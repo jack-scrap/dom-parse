@@ -60,7 +60,7 @@ function deser(tokCont) {
 			continue;
 		}
 
-		return `Error: Invalid token ${tokCont[i]}`;
+		return `Error: Invalid token "${tokCont[i]}"`;
 	}
 
 	return cont;
@@ -122,19 +122,19 @@ $(document).ready(function() {
 		const tokCont = tok(serial);
 
 		if (!tokCont.length) {
-			$('#res .body').text("Error: No tokens");
+			$('#res .body').text('Error: No tokens');
 
 			return;
 		}
 
 		if (tokCont.length < 3) {
-			$('#res .body').text("Error: Less tokens than required");
+			$('#res .body').text('Error: Less tokens than required');
 
 			return;
 		}
 
 		if (!(tokCont.length % 2)) {
-			$('#res .body').text("Error: Inappropriate number of tokens");
+			$('#res .body').text('Error: Inappropriate number of tokens');
 
 			return;
 		}
