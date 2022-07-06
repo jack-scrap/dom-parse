@@ -73,15 +73,15 @@ function parseExpr(deserCont) {
 	let oper = deserCont[1];
 
 	if (typeof lhs != 'number') {
-		return `Error: invalid type for left-hand operand "${lhs}"`;
+		return `Error: Invalid type for left-hand operand "${lhs}"`;
 	}
 
 	if (typeof rhs != 'number') {
-		return `Error: invalid type for right-hand operand "${rhs}"`;
+		return `Error: Invalid type for right-hand operand "${rhs}"`;
 	}
 
 	if (typeof oper != 'string') {
-		return `Error: invalid type for operator "${oper}"`;
+		return `Error: Invalid type for operator "${oper}"`;
 	}
 
 	let res;
