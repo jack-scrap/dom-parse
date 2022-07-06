@@ -7,14 +7,18 @@ $(document).ready(function() {
 		let tokCont = [];
 		let i = 0;
 		while (i < expr.length) {
-			if (expr[i] == ws) {
+			let c = expr[i];
+
+			if (c == ws) {
 				i++;
 
 				continue;
 			} else {
 				let tok = "";
-				while (expr[i] != ws && i < expr.length) {
-					tok += expr[i];
+				while (c != ws && i < expr.length) {
+					c = expr[i];
+
+					tok += c;
 
 					i++;
 				}
