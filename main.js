@@ -66,7 +66,7 @@ function parseExpr(deserCont) {
 			break;
 
 		default:
-			console.error(`Invalid operator ${op}`);
+			res = `Invalid operator ${op}`;
 
 			break;
 	}
