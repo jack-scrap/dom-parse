@@ -107,6 +107,12 @@ $(document).ready(function() {
 
 		const tokCont = tok(serial);
 
+		if (!tokCont.length) {
+			$('#res .body').text("Error: No tokens");
+
+			return;
+		}
+
 		const deserCont = deser(tokCont);
 
 		const res = parseExpr(deserCont);
