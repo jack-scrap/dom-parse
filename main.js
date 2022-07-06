@@ -27,7 +27,6 @@ function tok(serial) {
 	}
 
 	$('#tok .body').empty();
-
 	for (let tok of cont) {
 		$('#tok .body').append(`<div>${tok}</div>`);
 	}
