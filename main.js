@@ -72,6 +72,18 @@ function parseExpr(deserCont) {
 
 	let oper = deserCont[1];
 
+	if (typeof lhs != 'number') {
+		return `Error: invalid type for left-hand operand "${lhs}"`;
+	}
+
+	if (typeof rhs != 'number') {
+		return `Error: invalid type for right-hand operand "${rhs}"`;
+	}
+
+	if (typeof oper != 'string') {
+		return `Error: invalid type for operator "${oper}"`;
+	}
+
 	let res;
 	switch (oper) {
 		case op['add']:
@@ -119,9 +131,15 @@ $(document).ready(function() {
 
 		if (typeof deserCont == 'string') {
 			$('#res .body').text(deserCont);
+
+			return;
 		}
 
 		const res = parseExpr(deserCont);
+
+		if (typeof res == 'string') {
+			$('#res .body').text(res);
+		}
 
 		$('#tok .body').empty();
 		for (let tok of tokCont) {
