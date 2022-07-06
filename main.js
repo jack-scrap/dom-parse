@@ -59,6 +59,8 @@ function deser(tokCont) {
 
 			continue;
 		}
+
+		return `Error: Invalid token ${tokCont[i]}`;
 	}
 
 	return cont;
@@ -114,6 +116,10 @@ $(document).ready(function() {
 		}
 
 		const deserCont = deser(tokCont);
+
+		if (typeof deserCont == 'string') {
+			$('#res .body').text(deserCont);
+		}
 
 		const res = parseExpr(deserCont);
 
