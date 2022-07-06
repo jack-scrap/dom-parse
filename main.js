@@ -121,6 +121,11 @@ $(document).ready(function() {
 
 		const tokCont = tok(serial);
 
+		$('#tok .body').empty();
+		for (let tok of tokCont) {
+			$('#tok .body').append(`<div class='cont'>${tok}</div>`);
+		}
+
 		if (!tokCont.length) {
 			$('#res .body').text('Error: No tokens');
 
@@ -167,11 +172,6 @@ $(document).ready(function() {
 		}
 
 		const res = acc;
-
-		$('#tok .body').empty();
-		for (let tok of tokCont) {
-			$('#tok .body').append(`<div class='cont'>${tok}</div>`);
-		}
 
 		$('#res .body').text(res);
 	});
