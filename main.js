@@ -33,8 +33,8 @@ function tok(serial) {
 }
 
 function parseExpr(deserCont) {
-	let lhs = deserCont[0];
-	let rhs = deserCont[2];
+	let lhs = Number(deserCont[0]);
+	let rhs = Number(deserCont[2]);
 
 	let oper = deserCont[1];
 
