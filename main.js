@@ -62,6 +62,11 @@ function parseExpr(deserCont) {
 			res = lhs / rhs;
 
 			break;
+
+		default:
+			console.error(`Invalid operator ${deserCont[1]}`);
+
+			break;
 	}
 
 	return res;
