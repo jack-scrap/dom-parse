@@ -29,11 +29,6 @@ function tok(serial) {
 		}
 	}
 
-	$('#tok .body').empty();
-	for (let tok of cont) {
-		$('#tok .body').append(`<div class='cont'>${tok}</div>`);
-	}
-
 	return cont;
 }
 
@@ -79,5 +74,10 @@ $(document).ready(function() {
 		const serial = $('#expr').val();
 
 		let tokCont = tok(serial);
+
+		$('#tok .body').empty();
+		for (let tok of tokCont) {
+			$('#tok .body').append(`<div class='cont'>${tok}</div>`);
+		}
 	});
 });
