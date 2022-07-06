@@ -60,7 +60,7 @@ function deser(tokCont) {
 			continue;
 		}
 
-		return `Error: Invalid token "${tokCont[i]}"`;
+		return err(`Invalid token "${tokCont[i]}"`);
 	}
 
 	return cont;
@@ -73,15 +73,15 @@ function parseExpr(deserCont) {
 	let oper = deserCont[1];
 
 	if (typeof lhs != 'number') {
-		return `Error: Invalid type for left-hand operand "${lhs}"`;
+		return err(`Invalid type for left-hand operand "${lhs}"`);
 	}
 
 	if (typeof rhs != 'number') {
-		return `Error: Invalid type for right-hand operand "${rhs}"`;
+		return err(`Invalid type for right-hand operand "${rhs}"`);
 	}
 
 	if (typeof oper != 'string') {
-		return `Error: Invalid type for operator "${oper}"`;
+		return err(`Invalid type for operator "${oper}"`);
 	}
 
 	let res;
@@ -115,6 +115,15 @@ function parseExpr(deserCont) {
 	return res;
 }
 
+function err(msg) {
+	let full = "";
+
+	full += "Error: ";
+	full += msg;
+
+	return full;
+}
+
 $(document).ready(function() {
 	$('#expr').keyup(function() {
 		const serial = $('#expr').val();
@@ -127,19 +136,19 @@ $(document).ready(function() {
 		}
 
 		if (!tokCont.length) {
-			$('#res .body').text('Error: No tokens');
+			$('#res .body').text(err('No tokens'));
 
 			return;
 		}
 
 		if (tokCont.length < 3) {
-			$('#res .body').text('Error: Less tokens than required');
+			$('#res .body').text(err('Less tokens than required'));
 
 			return;
 		}
 
 		if (!(tokCont.length % 2)) {
-			$('#res .body').text('Error: Inappropriate number of tokens');
+			$('#res .body').text(err('Inappropriate number of tokens'));
 
 			return;
 		}
