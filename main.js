@@ -127,6 +127,10 @@ $(document).ready(function() {
 			return;
 		}
 
+		if (tokCont.length < 3) {
+			$('#res .body').text("Error: Less tokens than required");
+		}
+
 		const deserCont = deser(tokCont);
 
 		if (typeof deserCont == 'string') {
