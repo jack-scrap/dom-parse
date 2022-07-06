@@ -1,5 +1,12 @@
 const ws = ' ';
 
+const op = {
+	'add': '+',
+	'sub': '-',
+	'mul': '*',
+	'div': '/'
+};
+
 function tok(serial) {
 	let cont = [];
 	let i = 0;
