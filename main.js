@@ -37,6 +37,36 @@ function tok(serial) {
 	return cont;
 }
 
+function parseExpr(deserCont) {
+	let lhs = deserCont[0];
+	let rhs = deserCont[2];
+
+	let res;
+	switch (deserCont[1]) {
+		case op['add']:
+			res = lhs + rhs;
+
+			break;
+
+		case op['sub']:
+			res = lhs - rhs;
+
+			break;
+
+		case op['mul']:
+			res = lhs * rhs;
+
+			break;
+
+		case op['div']:
+			res = lhs / rhs;
+
+			break;
+	}
+
+	return res;
+}
+
 $(document).ready(function() {
 	$('#expr').keyup(function() {
 		const serial = $('#expr').val();
