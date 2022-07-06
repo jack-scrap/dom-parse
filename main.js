@@ -22,7 +22,7 @@ while (i < expr.length) {
 }
 
 $(document).ready(function() {
-	$('#expr').html(expr);
+	$('#expr').val(expr);
 
 	for (let tok of tokCont) {
 		$('#tok').append(`<div>${tok}</div>`);

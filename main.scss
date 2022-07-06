@@ -1,7 +1,12 @@
-div {
-	display: flex;
+body > * {
 	margin: 6px;
 	padding: 6px;
+}
+
+div {
+	margin: 6px;
+	padding: 6px;
+	display: flex;
 	border: 1px solid #333;
 	border-radius: 4px;
 }
