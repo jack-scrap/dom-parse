@@ -36,10 +36,10 @@ function parseExpr(deserCont) {
 	let lhs = deserCont[0];
 	let rhs = deserCont[2];
 
-	let op = deserCont[1];
+	let oper = deserCont[1];
 
 	let res;
-	switch (op) {
+	switch (oper) {
 		case op['add']:
 			res = lhs + rhs;
 
