@@ -1,7 +1,7 @@
 const ws = ' ';
 
 $(document).ready(function() {
-	$('#expr').keydown(function() {
+	$('#expr').keyup(function() {
 		const expr = $('#expr').val();
 
 		let cont = [];
