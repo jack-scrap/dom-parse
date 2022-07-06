@@ -18,7 +18,7 @@ function tok(serial) {
 		}
 
 		if (serial[i] != ws) {
-			let tok = "";
+			let tok = '';
 			while (serial[i] != ws && i < serial.length) {
 				tok += serial[i];
 
