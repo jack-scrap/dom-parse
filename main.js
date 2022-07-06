@@ -115,5 +115,7 @@ $(document).ready(function() {
 		for (let tok of tokCont) {
 			$('#tok .body').append(`<div class='cont'>${tok}</div>`);
 		}
+
+		$('#res .body').text(res);
 	});
 });
