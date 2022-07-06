@@ -161,7 +161,7 @@ $(document).ready(function() {
 			return;
 		}
 
-		$('#ast .body').empty();
+		$('#expr .body').empty();
 
 		let i = 0;
 		let acc = 0;
@@ -173,7 +173,7 @@ $(document).ready(function() {
 				lhs = deserCont[i];
 			}
 
-			$('#ast .body').append(`<div class='cont'>${lhs} ${deserCont[i + 1]} ${deserCont[i + 2]}</div>`);
+			$('#expr .body').append(`<div class='cont'>${lhs} ${deserCont[i + 1]} ${deserCont[i + 2]}</div>`);
 
 			if (i) {
 				acc = parseExpr([
