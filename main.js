@@ -93,7 +93,7 @@ function parseExpr(deserCont) {
 			break;
 
 		default:
-			res = `Invalid operator ${op}`;
+			res = `Invalid operator ${oper}`;
 
 			break;
 	}
