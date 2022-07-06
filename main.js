@@ -4,7 +4,7 @@ $(document).ready(function() {
 	$('#expr').keydown(function() {
 		const expr = $('#expr').val();
 
-		let tokCont = [];
+		let cont = [];
 		let i = 0;
 		while (i < expr.length) {
 			let c = expr[i];
@@ -25,13 +25,13 @@ $(document).ready(function() {
 					i++;
 				}
 
-				tokCont.push(tok);
+				cont.push(tok);
 			}
 		}
 
 		$('#tok').empty();
 
-		for (let tok of tokCont) {
+		for (let tok of cont) {
 			$('#tok').append(`<div>${tok}</div>`);
 		}
 	});
