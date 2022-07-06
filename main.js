@@ -29,10 +29,10 @@ $(document).ready(function() {
 			}
 		}
 
-		$('#tok').empty();
+		$('#tok .body').empty();
 
 		for (let tok of cont) {
-			$('#tok').append(`<div>${tok}</div>`);
+			$('#tok .body').append(`<div>${tok}</div>`);
 		}
 	});
 });
