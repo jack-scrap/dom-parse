@@ -41,8 +41,10 @@ function parseExpr(deserCont) {
 	let lhs = deserCont[0];
 	let rhs = deserCont[2];
 
+	let op = deserCont[1];
+
 	let res;
-	switch (deserCont[1]) {
+	switch (op) {
 		case op['add']:
 			res = lhs + rhs;
 
@@ -64,7 +66,7 @@ function parseExpr(deserCont) {
 			break;
 
 		default:
-			console.error(`Invalid operator ${deserCont[1]}`);
+			console.error(`Invalid operator ${op}`);
 
 			break;
 	}
