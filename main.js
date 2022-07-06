@@ -37,8 +37,8 @@ function tok(serial) {
 
 $(document).ready(function() {
 	$('#expr').keyup(function() {
-		const expr = $('#expr').val();
+		const serial = $('#expr').val();
 
-		let serial = tok(expr);
+		let tokCont = tok(serial);
 	});
 });
