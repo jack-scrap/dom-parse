@@ -66,6 +66,10 @@ function deser(tokCont) {
 	return cont;
 }
 
+function serialExpr(deserCont) {
+	return `${deserCont[0]} ${deserCont[1]} ${deserCont[2]}`;
+}
+
 function parseExpr(deserCont) {
 	let lhs = deserCont[0];
 	let rhs = deserCont[2];
@@ -173,7 +177,7 @@ $(document).ready(function() {
 				lhs = deserCont[i];
 			}
 
-			$('#expr .body').append(`<div class='cont'>${lhs} ${deserCont[i + 1]} ${deserCont[i + 2]}</div>`);
+			$('#expr .body').append(`<div class='cont'>${serialExpr([lhs, deserCont[i + 1], deserCont[i + 2]])}</div>`);
 
 			if (i) {
 				acc = parseExpr([
