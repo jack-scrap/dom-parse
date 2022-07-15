@@ -88,6 +88,11 @@ function parseExpr(deserCont) {
 		return err(`Invalid type for operator "${oper}"`);
 	}
 
+	// assert
+	if (oper == op['div'] && rhs == 0) {
+		return err(`Division by zero`);
+	}
+
 	let res;
 	switch (oper) {
 		case op['add']:
