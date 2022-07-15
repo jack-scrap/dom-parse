@@ -125,7 +125,7 @@ function err(msg) {
 	full += "Error: ";
 	full += msg;
 
-	return full;
+	return `<span style='color: red'>${full}</span>`;
 }
 
 $(document).ready(function() {
@@ -136,23 +136,23 @@ $(document).ready(function() {
 
 		$('#tok .body').empty();
 		for (let tok of tokCont) {
-			$('#tok .body').append(`<div class='cont'>${tok}</div>`);
+			$('#tok .body').empty().append(`<div class='cont'>${tok}</div>`);
 		}
 
 		if (!tokCont.length) {
-			$('#res .body').text(err('No tokens'));
+			$('#res .body').empty().append(err('No tokens'));
 
 			return;
 		}
 
 		if (tokCont.length < 3) {
-			$('#res .body').text(err('Less tokens than required'));
+			$('#res .body').empty().append(err('Less tokens than required'));
 
 			return;
 		}
 
 		if (!(tokCont.length % 2)) {
-			$('#res .body').text(err('Inappropriate number of tokens'));
+			$('#res .body').empty().append(err('Inappropriate number of tokens'));
 
 			return;
 		}
@@ -160,7 +160,7 @@ $(document).ready(function() {
 		const deserCont = deser(tokCont);
 
 		if (typeof deserCont == 'string') {
-			$('#res .body').text(deserCont);
+			$('#res .body').empty().append(deserCont);
 
 			return;
 		}
@@ -177,7 +177,7 @@ $(document).ready(function() {
 				lhs = deserCont[i];
 			}
 
-			$('#expr .body').append(`<div class='cont'>${serialExpr([lhs, deserCont[i + 1], deserCont[i + 2]])}</div>`);
+			$('#expr .body').empty().append(`<div class='cont'>${serialExpr([lhs, deserCont[i + 1], deserCont[i + 2]])}</div>`);
 
 			if (i) {
 				acc = parseExpr([
@@ -198,6 +198,6 @@ $(document).ready(function() {
 
 		const res = acc;
 
-		$('#res .body').text(res);
+		$('#res .body').empty().append(res);
 	});
 });
