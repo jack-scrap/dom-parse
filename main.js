@@ -138,7 +138,7 @@ $(document).ready(function() {
 
 		$('#tok .body').empty();
 		for (let tok of tokCont) {
-			$('#tok .body').empty().append(`<div class='cont'>${tok}</div>`);
+			$('#tok .body').append(`<div class='cont'>${tok}</div>`);
 		}
 
 		if (!tokCont.length) {
