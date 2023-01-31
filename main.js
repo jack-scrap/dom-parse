@@ -125,10 +125,7 @@ function parseExpr(deserCont) {
 }
 
 function err(msg) {
-	let full = "";
-
-	full += "Error: ";
-	full += msg;
+	let full = `Error: ${msg}`;
 
 	return `<span style='color: red'>${full}</span>`;
 }
