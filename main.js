@@ -179,7 +179,7 @@ $(document).ready(function() {
 				lhs = deserCont[i];
 			}
 
-			$('#expr .body').empty().append(`<div class='cont'>${serialExpr([lhs, deserCont[i + 1], deserCont[i + 2]])}</div>`);
+			$('#expr .body').append(`<div class='cont'>${serialExpr([lhs, deserCont[i + 1], deserCont[i + 2]])}</div>`);
 
 			if (i) {
 				acc = parseExpr([
